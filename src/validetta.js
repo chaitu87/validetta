@@ -221,7 +221,12 @@
       // real-time option control
       if( this.options.realTime === true ) {
         // handle change event for form elements (without checkbox)
-        $( this.form ).find('[data-validetta]').not('[type=checkbox]').on( 'keyup blur', function( e ) {
+        $( this.form ).find('[data-validetta]').not('[type=checkbox]').on( 'keyup', function( e ) {
+          // field to be controlled transferred to global variable
+          FIELDS = $( this );
+          return self.init( e );
+        });
+        $( this.form ).find('[data-validetta]').not('[type=checkbox]').on( 'blur', function( e ) {
           // field to be controlled transferred to global variable
           FIELDS = $( this );
           return self.init( e );
