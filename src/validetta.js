@@ -231,6 +231,11 @@
           FIELDS = $( this );
           return self.init( e );
         });
+        $( this.form ).find('[data-validetta]').not('[type=checkbox]').on( 'focusout', function( e ) {
+          // field to be controlled transferred to global variable
+          FIELDS = $( this );
+          return self.init( e );
+        });
         // handle click event for checkboxes
         $( this.form ).find('[data-validetta][type=checkbox]').on( 'click', function( e ) {
           // fields to be controlled transferred to global variable
